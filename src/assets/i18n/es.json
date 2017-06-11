@@ -1,0 +1,9 @@
+{
+  "langs": {
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "home" : "Inicio",
+  "home_description" : "Aquí hay algunos vínculos para ayudarte a comenzar",
+  "hello": "Bienvenido {{value}}"
+}
