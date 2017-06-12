@@ -4,7 +4,7 @@ import { HttpModule, Http } from '@angular/http';
 // depends
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AuthService, AppGlobals } from 'angular2-google-login';
+import { AuthService, AppGlobals } from 'ng2-google-login';
 
 import { AppComponent } from './app.component';
 

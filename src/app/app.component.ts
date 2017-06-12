@@ -1,6 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService, AppGlobals } from 'angular2-google-login';
+import { AuthService, AppGlobals } from 'ng2-google-login';
 import { Profile } from './models/profile';
 
 @Component({
@@ -27,17 +27,18 @@ export class AppComponent {
 
   ngOnInit() {
     AppGlobals.GOOGLE_CLIENT_ID = '448548789014-su3rs3853if9vabnpuinr6d4nmku2log.apps.googleusercontent.com';
-    this.loging(); // fix double click
+    AppGlobals.SCOPES = 'profile email';
+    console.log(this.loging()); // fix double click
   }
 
   loging(){
-    this.googleAuth.authenticateUser( () => {
+    this.googleAuth.authenticateUser( (result) => {
       // google component saves in localStorage
       this.profile = new Profile(
-        localStorage.getItem('token'),
-        localStorage.getItem('name'),
-        localStorage.getItem('image'),
-        localStorage.getItem('email')
+        result['token'],
+        result['name' ],
+        result['image'],
+        result['email']
       );
       // forcer reload
       this.zone.run( () => {} );//fix double click
