@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 // depends
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -11,6 +12,13 @@ import { AppComponent } from './app.component';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: AppComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -25,7 +33,8 @@ export function createTranslateLoader(http: Http) {
         useFactory: (createTranslateLoader),
         deps: [Http]
       }
-    })
+    }),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
