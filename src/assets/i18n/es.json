@@ -4,6 +4,12 @@
     "es": "Español"
   },
   "home" : "Inicio",
-  "home_description" : "Aquí hay algunos vínculos para ayudarte a comenzar",
+  "list" : "Listado",
+  "logs" : "Reportes",
+  "logs" : "Reporte detalle",
+  "menu" : "Menu",
+  "login" : "Iniciar sesión",
+  "logout" : "Salir",
+  "home_description" : "Texto de página general",
   "hello": "Bienvenido {{value}}"
 }

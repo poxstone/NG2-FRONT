@@ -1,18 +1,36 @@
-<!--The whole content below can be removed with the new code.-->
-<select #langSelect (change)="translate.use(langSelect.value)">
-  <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ "langs." + lang | translate }}</option>
-</select>
-<div>{{ 'hello' | translate:{value: profile.email }  }}</div>
-<button id="google-login-button" (click)="loging()">loging</button>
-<button (click)="logout()">logout</button>
-<nav>
-  <a routerLink="/" routerLinkActive="active">inicio</a>
-</nav>
-<div>
-  <img src="{{ profile.image }}">
+<header>
+  <div class="login">
+    <img src="{{ profile.image }}">
+    {{ 'hello' | translate:{value: profile.email }  }}
+
+    <button id="google-login-button" (click)="loging()">{{ 'login' | translate }}</button>
+    <button (click)="logout()">{{ 'logout' | translate }}</button>
+
+    <select #langSelect (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ "langs." + lang | translate }}</option>
+    </select>
+  </div>
+
+  <h1> {{ 'home' | translate }}!!  <small> {{ 'home_description' | translate }}: </small> </h1>
+</header>
+
+<div class="content">
+  <nav class="nav">
+    {{ 'menu' | translate }}:
+    <ul>
+      <li> <a routerLink="">{{ 'home' | translate }}</a> </li>
+      <li> <a routerLink="/a/domain.com/admin" routerLinkActive="active">{{ 'list' | translate }}</a> </li>
+      <li>
+        <a routerLink="/a/domain.com/logs" routerLinkActive="active">{{ 'logs' | translate }}</a>
+        <ul>
+          <li>
+            <a routerLink="/a/domain.com/logs/1" routerLinkActive="active">{{ 'log' | translate }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
 </div>
-
-<h1> {{ 'home' | translate }}!! </h1>
-<p> {{ 'home_description' | translate }}: </p>
-
-<router-outlet></router-outlet>
