@@ -8,9 +8,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthService, AppGlobals } from 'ng2-google-login';
 
 import { AppComponent } from './app.component';
+import { Page404Component } from './page404/page404.component';
 import { LogsComponent } from './logs/logs.component';
 import { ListComponent } from './list/list.component';
-import { Page404Component } from './page404/page404.component';
+import { LogInnerComponent } from './log-inner/log-inner.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,8 +23,12 @@ const appRoutes: Routes = [
     component: ListComponent
   },
   {
-    path: 'a/:tenant/logs/:user',
+    path: 'a/:tenant/logs',
     component: LogsComponent
+  },
+  {
+    path: 'a/:tenant/logs/:query',
+    component: LogInnerComponent 
   },
   {
     path: '**',
@@ -36,7 +41,8 @@ const appRoutes: Routes = [
     AppComponent,
     LogsComponent,
     ListComponent,
-    Page404Component
+    Page404Component,
+    LogInnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,41 @@
+.login {
+  float: right;
+  padding: 10px;
+  text-align: right;
+}
+.login img{
+  max-width: 24px;
+  border-radius: 1000px;
+  vertical-align: middle;
+}
+header {
+  background: #ccc;
+  padding: 10px;
+}
+.content {
+  clear: both;
+  display: flex;
+}
+nav {
+  background: #f1f1f1;
+  padding: 10px;
+  float: left;
+  width: 180px;
+}
+nav a {
+  display: inline-block;
+  padding: 4px;
+}
+nav a.active {
+  background: #aaa;
+}
+nav ul {
+  padding-left: 1em;
+}
+
+main {
+  border: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  padding: 10px;
+  flex-grow: 1;
+}
