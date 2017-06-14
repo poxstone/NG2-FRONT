@@ -5,6 +5,9 @@
 <div>{{ 'hello' | translate:{value: profile.email }  }}</div>
 <button id="google-login-button" (click)="loging()">loging</button>
 <button (click)="logout()">logout</button>
+<nav>
+  <a routerLink="/" routerLinkActive="active">inicio</a>
+</nav>
 <div>
   <img src="{{ profile.image }}">
 </div>
