@@ -10,6 +10,7 @@ import { AuthService, AppGlobals } from 'ng2-google-login';
 import { AppComponent } from './app.component';
 import { LogsComponent } from './logs/logs.component';
 import { ListComponent } from './list/list.component';
+import { Page404Component } from './page404/page404.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -17,21 +18,25 @@ export function createTranslateLoader(http: Http) {
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'a/:tenant/admin',
     component: ListComponent
   },
   {
-    path: 'logs',
+    path: 'a/:tenant/logs/:user',
     component: LogsComponent
+  },
+  {
+    path: '**',
+    component: Page404Component 
   }
-
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LogsComponent,
-    ListComponent
+    ListComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
