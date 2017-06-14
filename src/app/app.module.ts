@@ -7,6 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthService, AppGlobals } from 'ng2-google-login';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page404Component } from './page404/page404.component';
 import { LogsComponent } from './logs/logs.component';
@@ -16,25 +17,6 @@ import { LogInnerComponent } from './log-inner/log-inner.component';
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
-const appRoutes: Routes = [
-  {
-    path: 'a/:tenant/admin',
-    component: ListComponent
-  },
-  {
-    path: 'a/:tenant/logs',
-    component: LogsComponent
-  },
-  {
-    path: 'a/:tenant/logs/:query',
-    component: LogInnerComponent 
-  },
-  {
-    path: '**',
-    component: Page404Component 
-  }
-];
 
 @NgModule({
   declarations: [
@@ -54,7 +36,7 @@ const appRoutes: Routes = [
         deps: [Http]
       }
     }),
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
