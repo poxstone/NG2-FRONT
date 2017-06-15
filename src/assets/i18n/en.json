@@ -11,5 +11,7 @@
   "login" : "Login",
   "logout" : "Logout",
   "home_description" : "Text of general page",
+  "tenant" : "Tenant",
+  "query" : "Query",
   "hello": "Welcome {{value}}" 
 }

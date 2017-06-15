@@ -11,5 +11,7 @@
   "login" : "Iniciar sesión",
   "logout" : "Salir",
   "home_description" : "Texto de página general",
+  "tenant" : "Inquilino",
+  "query" : "Consulta",
   "hello": "Bienvenido {{value}}"
 }
