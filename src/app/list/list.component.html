@@ -4,3 +4,8 @@
 <p>
   <b>{{ 'tenant' | translate }}</b> : {{ tenant }}
 </p>
+<ul>
+  <li *ngFor="let item of items">
+    {{item.message}}
+  </li>
+</ul>
