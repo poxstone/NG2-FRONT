@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 // depends
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AuthService, AppGlobals } from 'ng2-google-login';
+import { AuthService } from 'ng2-google-login';
 
 // routings and components
 import { AppRoutingModule } from './app-routing.module';

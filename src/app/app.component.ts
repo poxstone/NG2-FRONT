@@ -26,13 +26,13 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    AppGlobals.GOOGLE_CLIENT_ID = '448548789014-su3rs3853if9vabnpuinr6d4nmku2log.apps.googleusercontent.com';
+  AppGlobals.GOOGLE_CLIENT_ID = '448548789014-su3rs3853if9vabnpuinr6d4nmku2log.apps.googleusercontent.com';
     AppGlobals.SCOPES = 'profile email';
-    console.log(this.loging()); // fix double click
+    this.loging();// autoload
   }
 
   loging(){
-    this.googleAuth.authenticateUser( (result) => {
+    this.googleAuth.apiInit('helloworld', 'v1', (result) => {
       // google component saves in localStorage
       this.profile = new Profile(
         result['token'],
@@ -40,6 +40,7 @@ export class AppComponent {
         result['image'],
         result['email']
       );
+      console.log('user data:', result)
       // forcer reload
       this.zone.run( () => {} );//fix double click
     } );
