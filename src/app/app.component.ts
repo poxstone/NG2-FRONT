@@ -12,6 +12,10 @@ export class AppComponent {
   title = 'app';
   translate:TranslateService;
   profile:Profile = new Profile();
+  apis:any = [
+    {apiName:'helloworld', apiVersion:'v1'},
+    {apiName:'hello2', apiVersion:'v1'},
+  ];
 
   constructor(
     public zone: NgZone,
@@ -26,13 +30,25 @@ export class AppComponent {
   }
 
   ngOnInit() {
-  AppGlobals.GOOGLE_CLIENT_ID = '448548789014-su3rs3853if9vabnpuinr6d4nmku2log.apps.googleusercontent.com';
+    // define global apis
+    AppGlobals.GOOGLE_CLIENT_ID = '448548789014-su3rs3853if9vabnpuinr6d4nmku2log.apps.googleusercontent.com';
     AppGlobals.SCOPES = 'profile email';
+    AppGlobals.APIROOT = 'endpoint2-dot-efor-gae-temp-01.appspot.com';
+    AppGlobals.APILOCAL = 'localhost:8080';
+    AppGlobals.EXTAPI = false;
     this.loging();// autoload
   }
 
+  apiExample() {
+    this.googleAuth.client.helloworld.greetings.listGreeting()
+      .execute(res => {
+        console.log(res);
+        this.valueFromApi = res;
+      } );
+  }
+
   loging(){
-    this.googleAuth.apiInit('helloworld', 'v1', (result) => {
+    this.googleAuth.apiInit(this.apis, (result) => {
       // google component saves in localStorage
       this.profile = new Profile(
         result['token'],
